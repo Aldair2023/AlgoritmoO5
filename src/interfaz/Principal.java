@@ -57,6 +57,7 @@ public class Principal extends javax.swing.JFrame {
         txtRetirar = new javax.swing.JTextField();
         cmdIngresar = new javax.swing.JButton();
         txtInt = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,6 +98,11 @@ public class Principal extends javax.swing.JFrame {
 
         cmdLimpiar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         cmdLimpiar.setText("Limpiar");
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 100, 40));
 
         cmdCrear.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
@@ -148,7 +154,12 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.add(cmdIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 250, 180));
-        jPanel1.add(txtInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 110, 40));
+        jPanel1.add(txtInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 110, 30));
+
+        jLabel6.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Interes");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/57E.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -213,7 +224,14 @@ public class Principal extends javax.swing.JFrame {
         
         int valoretirar = Integer.parseInt(txtRetirar.getText());
         
+        if(valoretirar > x.getSaldo_actual()){
+            JOptionPane.showMessageDialog(this, "No puedes retirar mas de lo que tienes " ,"ERROR", JOptionPane.WARNING_MESSAGE);
+        }else{
+        
         x.retirar(valoretirar);
+        }
+    
+        
     }//GEN-LAST:event_cmdRetirarActionPerformed
 
     private void cmdActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActualizarActionPerformed
@@ -225,6 +243,21 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "saldo actualizado");
         
     }//GEN-LAST:event_cmdActualizarActionPerformed
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+        // TODO add your handling code here:
+        
+       txtIDE.setText("");
+       txtIngresar.setText("");
+       txtInt.setText("");
+       txtInteres.setText("");
+       txtMostrar.setText("");
+       txtRetirar.setText("");
+       txtSaldoActual.setText("");
+       txtIDE.requestFocusInWindow();
+       
+       
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,6 +306,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
