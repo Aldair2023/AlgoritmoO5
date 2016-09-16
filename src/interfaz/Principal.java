@@ -232,7 +232,7 @@ public class Principal extends javax.swing.JFrame {
         double saldo;
         
         if(txtIDE.getText().trim().isEmpty() && txtNumero.getText().trim().isEmpty() && txtSaldoActual.getText().trim().isEmpty() && txtInt.getText().trim().isEmpty()){
-           JOptionPane.showMessageDialog(this, "Goku dice que por favor LLENE los campos vacios", "ERROR", JOptionPane.WARNING_MESSAGE);
+           JOptionPane.showMessageDialog(this, "Por favor LLENE los campos vacios", "ERROR", JOptionPane.WARNING_MESSAGE);
         }else if(txtIDE.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor ingrese su numero de identificacion", "ERROR", JOptionPane.WARNING_MESSAGE);
         }else if(txtNumero.getText().trim().isEmpty()){
